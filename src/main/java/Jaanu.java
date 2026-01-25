@@ -3,20 +3,13 @@ import java.util.Scanner;
 
 public class Jaanu {
     private static int numOfTasks = 0;
-    private static String[] tasks = new String[100];
     private static final String dividerLine = "____________________________________________________________\n";
-    private static boolean[] tasksDone = new boolean[100];
+    private static Task[] taskList = new Task[100];
 
     public static void printList(){
         for (int i = 0; i< numOfTasks ;i++){
-            String doneChar;
-            if (tasksDone[i]){
-                doneChar = "X";
-            }
-            else {
-                doneChar = " ";
-            }
-            System.out.println((i+1)+"."+"["+doneChar+"] "+tasks[i]);
+            String doneChar = taskList[i].getStatusIcon();
+            System.out.println((i+1)+"."+"["+doneChar+"] "+taskList[i].description);
         }
         return;
     }
@@ -38,28 +31,22 @@ public class Jaanu {
 
     public static void markTask(String[] inputString){
         int taskNum = Integer.parseInt(inputString[1])-1;
-        tasksDone[taskNum] = true;
+        taskList[taskNum].setAsDone();
         System.out.println("Attaboy, keep the grind on");
-        System.out.println("  [X]"+tasks[taskNum]);
+        System.out.println("  [X]"+taskList[taskNum].description);
     }
 
     public static void unmarkTask(String[] inputString){
         int taskNum = Integer.parseInt(inputString[1])-1;
-        tasksDone[taskNum] = false;
+        taskList[taskNum].setAsNotDone();
         System.out.println("U lazy dog, go finish this task:");
-        System.out.println("  [ ]"+tasks[taskNum]);
+        System.out.println("  [ ]"+taskList[taskNum].description);
     }
 
     public static void manageTasks(){
         Scanner in = new Scanner(System.in);
         String input = in.nextLine();
         String[] inputString;
-        if (!input.contains("bye")){
-            tasks[numOfTasks] = input;
-        }
-        else{
-            return;
-        }
         inputString = input.split(" ");
         while (!input.contains("bye")){
             if (input.equals("list")) {
@@ -72,7 +59,8 @@ public class Jaanu {
                 unmarkTask(inputString);
             }
             else {
-                tasks[numOfTasks] = input;
+                System.out.println("reached here");
+                taskList[numOfTasks] = new Task(input);
                 numOfTasks++;
                 System.out.println(dividerLine + "added: " + input + "\n" + dividerLine + "\n");
             }
