@@ -2,8 +2,8 @@ public class Task {
     protected String description;
     protected boolean isDone;
 
-    public Task(String Description) {
-        this.description =Description;
+    public Task(String description) {
+        this.description = description;
         this.isDone = false;
     }
 
@@ -11,15 +11,15 @@ public class Task {
         return (isDone ? "X" : " "); // mark done task with X
     }
 
-    public void setAsDone(){
+    public void setAsDone() {
         this.isDone = true;
     }
 
-    public void setAsNotDone(){
+    public void setAsNotDone() {
         this.isDone = false;
     }
 
-    public void setDescription(String text){
+    public void setDescription(String text) {
         this.description = text;
     }
 }
