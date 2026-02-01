@@ -1,0 +1,5 @@
+event do your homework /3/4
+deadline do karate /4
+todo go gym
+list
+bye
