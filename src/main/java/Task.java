@@ -22,4 +22,23 @@ public class Task {
     public void setDescription(String text) {
         this.description = text;
     }
+
+    @Override
+    public String toString() {
+        String status = null;
+        if (isDone){
+            status = "[X]";
+        } else {
+            status = "[ ]";
+        }
+        return "[T]" + status + " "  + toStringMain();
+    }
+
+    public String toStringMain(){
+        return this.description;
+    }
+
+    public String getClassIcon() {
+        return "T";
+    }
 }
