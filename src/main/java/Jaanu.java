@@ -59,7 +59,6 @@
                 int dividerPosition = input.indexOf("/");
                 parsedArgs[0] = input.substring(0, dividerPosition);
                 String temp = input.substring(dividerPosition + 1);
-                System.out.println(temp);
                 if (temp.contains("/")) {
                     int secondDividerPosition = temp.indexOf("/")+dividerPosition+1;
                     parsedArgs[1] = input.substring(dividerPosition + 1, secondDividerPosition);
@@ -91,7 +90,7 @@
                     markTask(inputString);
                 } else if ((inputString[0]).equals("unmark")) {
                     unmarkTask(inputString);
-                } else if ((inputString[0]).equals("todos")){
+                } else if ((inputString[0]).equals("todo")){
                     taskList[numOfTasks] = new Task((parsedArgs[0]).substring(5,taskDescriptionLength));
                     printAddConfirmationMsg();
                     numOfTasks++;
