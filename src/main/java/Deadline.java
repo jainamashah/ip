@@ -1,5 +1,4 @@
 public class Deadline extends Task {
-
     protected String by;
 
     public Deadline(String description, String by) {
@@ -9,16 +8,11 @@ public class Deadline extends Task {
 
     @Override
     public String toString() {
-        String status = null;
-        if (isDone){
-            status = "[X]";
-        } else {
-            status = "[ ]";
-        }
-        return "[D]" + status + " "  + toStringMain() + "(by: " + by + ")";
+        String status = isDone ? "[X]" : "[ ]";
+        return "[D]" + status + " " + toStringMain() + " (by: " + by + ")";
     }
 
-    public String getBy(){
+    public String getBy() {
         return by;
     }
 
