@@ -1,3 +1,5 @@
+package jaanu.Task;
+
 public class Event extends Deadline {
     protected String from;
 

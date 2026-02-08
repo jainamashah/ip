@@ -1,6 +1,10 @@
 package jaanu.ui;
 
 import java.util.Scanner;
+import jaanu.Task.Task;
+import jaanu.Task.Deadline;
+import jaanu.Task.Event;
+import jaanu.JaanuException.JaanuException;
 
 public class Jaanu {
     private static final int MAX_TASKS = 100;
@@ -19,13 +23,13 @@ public class Jaanu {
             String doneChar = taskList[i].getStatusIcon();
             String classChar = taskList[i].getClassIcon();
             System.out.println((i + 1) + ". [" + classChar + "] [" + doneChar + "] "
-                    + taskList[i].description);
+                    + taskList[i].toStringMain());
         }
     }
 
     public static void printGreeting() {
         String greeting = DIVIDER_LINE
-                + " I'm your jaanu.ui.Jaanu\n"
+                + " I'm your Jaanu\n"
                 + " I'll do anything, just ask and see\n"
                 + DIVIDER_LINE;
         System.out.println(greeting);
@@ -71,13 +75,13 @@ public class Jaanu {
                     + numOfTasks + " task(s) babes");
         }
 
-        if (taskList[taskNum].isDone) {
+        if (taskList[taskNum].isDone()) {
             throw new JaanuException("bro u already marked that one. getting old?");
         }
 
         taskList[taskNum].setAsDone();
         System.out.println(DIVIDER_LINE + "Attaboy, keep the grind on");
-        System.out.println("  [X] " + taskList[taskNum].description + "\n" + DIVIDER_LINE);
+        System.out.println("  [X] " + taskList[taskNum].toStringMain() + "\n" + DIVIDER_LINE);
     }
 
     public static void unmarkTask(String[] inputString) throws JaanuException {
@@ -97,13 +101,13 @@ public class Jaanu {
                     + numOfTasks + " task(s)");
         }
 
-        if (!taskList[taskNum].isDone) {
+        if (!taskList[taskNum].isDone()) {
             throw new JaanuException("it's already unmarked genius. pay attention babes");
         }
 
         taskList[taskNum].setAsNotDone();
         System.out.println(DIVIDER_LINE + "U lazy dog, go finish this task:");
-        System.out.println("  [ ] " + taskList[taskNum].description + "\n" + DIVIDER_LINE);
+        System.out.println("  [ ] " + taskList[taskNum].toStringMain() + "\n" + DIVIDER_LINE);
     }
 
     public static void parseArgs(String input) {
