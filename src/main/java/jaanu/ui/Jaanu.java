@@ -1,3 +1,5 @@
+package jaanu.ui;
+
 import java.util.Scanner;
 
 public class Jaanu {
@@ -23,7 +25,7 @@ public class Jaanu {
 
     public static void printGreeting() {
         String greeting = DIVIDER_LINE
-                + " I'm your Jaanu\n"
+                + " I'm your jaanu.ui.Jaanu\n"
                 + " I'll do anything, just ask and see\n"
                 + DIVIDER_LINE;
         System.out.println(greeting);
