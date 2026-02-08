@@ -1,3 +1,5 @@
+package jaanu.Task;
+
 public class Task {
     protected String description;
     protected boolean isDone;
@@ -17,6 +19,10 @@ public class Task {
 
     public void setAsNotDone() {
         this.isDone = false;
+    }
+
+    public boolean isDone() {
+        return isDone;
     }
 
     public void setDescription(String text) {
