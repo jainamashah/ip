@@ -1,4 +1,4 @@
-# Jaanu User Guide
+# jaanu.ui.Jaanu User Guide
 
 // Update the title above to match the actual product name
 
