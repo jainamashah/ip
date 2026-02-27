@@ -306,6 +306,32 @@ public class Jaanu {
         printAddConfirmationMsg(newTask);
     }
 
+    // NEW: delete command
+    public static void deleteTask(String[] inputString) throws JaanuException {
+        if (inputString.length < 2) {
+            throw new JaanuException("delete WHAT babes? gimme a number\n try: delete 3");
+        }
+
+        int taskNum;
+        try {
+            taskNum = Integer.parseInt(inputString[1]) - 1;
+        } catch (NumberFormatException e) {
+            throw new JaanuException("bruh that's not a number. try: delete 1");
+        }
+
+        if (taskNum < 0 || taskNum >= tasks.size()) {
+            throw new JaanuException("lmao task " + (taskNum + 1) + " doesn't exist. u only got "
+                    + tasks.size() + " task(s)");
+        }
+
+        Task removed = tasks.remove(taskNum);
+
+        System.out.println(DIVIDER_LINE + "Noted. I've removed this task:");
+        System.out.println("  " + removed.toString());
+        System.out.println("Now you have " + tasks.size() + " tasks in the list.\n" + DIVIDER_LINE);
+    }
+
+
     public static void manageTasks() throws JaanuException {
         Scanner in = new Scanner(System.in);
         String input = in.nextLine();
@@ -338,6 +364,9 @@ public class Jaanu {
                 case "deadline":
                 case "event":
                     addTask(command, taskDescriptionLength);
+                    break;
+                case "delete":
+                    deleteTask(inputString);
                     break;
                 default:
                     throw new JaanuException("wht is '" + command + "'??? I don't speak that language babes\n"
