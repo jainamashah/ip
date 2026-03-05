@@ -1,5 +1,5 @@
-event do your homework /3/4
-deadline do karate /4
+event do your homework /from 3 /to 4
+deadline do karate /by 4
 todo go gym
 list
 bye
