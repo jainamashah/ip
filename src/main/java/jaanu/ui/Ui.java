@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import jaanu.Task.Task;
 import jaanu.JaanuException.JaanuException;
+import jaanu.Task.TaskList;
 
 /**
  * Ui class handles all user interface interactions.
@@ -101,6 +102,18 @@ public class Ui {
     public void showUnmark(Task t) {
         System.out.println(DIVIDER_LINE + "U lazy dog, go finish this task:");
         System.out.println("  [ ] " + t.toStringMain() + "\n" + DIVIDER_LINE);
+    }
+
+    public void showTask(int i, TaskList tasks) {
+        if (i > -1){
+            Task t = tasks.get(i);
+            System.out.println(DIVIDER_LINE + "i gotchu:");
+            System.out.println((i + 1) + ". " + t.toString());
+            System.out.println("\n" + DIVIDER_LINE);
+        }
+        else {
+            System.out.println(DIVIDER_LINE + "There is nothing there babes" + "\n" + DIVIDER_LINE);
+        }
     }
 
     public void showDelete(Task removed, int size) {

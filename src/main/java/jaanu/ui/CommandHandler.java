@@ -6,6 +6,8 @@ import jaanu.Task.Event;
 import jaanu.Task.TaskList;
 import jaanu.JaanuException.JaanuException;
 
+import java.util.List;
+
 /**
  * CommandHandler class manages all task-related commands.
  * Handles adding, marking, unmarking, and deleting tasks.
@@ -86,6 +88,12 @@ public class CommandHandler {
 
         t.setAsNotDone();
         ui.showUnmark(t);
+    }
+
+    public void findTask(String keyword, TaskList tasks) throws JaanuException {
+
+        int taskNum = tasks.find(keyword);
+        ui.showTask(taskNum, tasks);
     }
 
     /**
