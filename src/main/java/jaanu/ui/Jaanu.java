@@ -64,6 +64,9 @@ public class Jaanu {
                     case "unmark":
                         commandHandler.unmarkTask(args);
                         break;
+                    case "find":
+                        commandHandler.findTask(args[1],tasks);
+                        break;
                     case "todo":
                     case "deadline":
                     case "event":

@@ -51,6 +51,20 @@ public class TaskList {
         return tasks.get(index);
     }
 
+    public int find(String keyword) {
+        String[] task_words;
+        for (int i = 0; i < size(); i++){
+            Task cur_task = tasks.get(i);
+            task_words = (cur_task.description).split(" ");
+            for (int j = 0; j < task_words.length; j++){
+                if ((task_words[j]).equals(keyword)) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
+
     /**
      * Gets the number of tasks in the list.
      * @return The size of the task list
