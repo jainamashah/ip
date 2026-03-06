@@ -90,6 +90,13 @@ public class CommandHandler {
         ui.showUnmark(t);
     }
 
+    /**
+     * Finds and displays the first task that contains the given keyword.
+     *
+     * @param keyword keyword to search for in task descriptions
+     * @param tasks task list to search within
+     * @throws JaanuException reserved for future error handling extensions
+     */
     public void findTask(String keyword, TaskList tasks) throws JaanuException {
 
         int taskNum = tasks.find(keyword);

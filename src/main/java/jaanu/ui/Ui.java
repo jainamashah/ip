@@ -72,6 +72,12 @@ public class Ui {
         showError("Error loading tasks from file.");
     }
 
+    /**
+     * Prints all tasks in the provided list with their indices.
+     *
+     * @param tasks list of tasks to display
+     * @throws JaanuException if the list is empty
+     */
     public void printList(List<Task> tasks) throws JaanuException {
         if (tasks.isEmpty()) {
             throw new JaanuException("bruh your list is empty lol. add something first babes");
@@ -83,6 +89,12 @@ public class Ui {
         }
     }
 
+    /**
+     * Shows a confirmation message after a task is added.
+     *
+     * @param addedTask the task that was just added
+     * @param size      the new total number of tasks
+     */
     public void printAddConfirmationMsg(Task addedTask, int size) {
         String msg = DIVIDER_LINE
                 + "um ok, there you go babes:";
@@ -94,16 +106,32 @@ public class Ui {
         System.out.println(remainingTaskMsg);
     }
 
+    /**
+     * Displays a message indicating that the given task has been marked as done.
+     *
+     * @param t task that was marked as done
+     */
     public void showMark(Task t) {
         System.out.println(DIVIDER_LINE + "Attaboy, keep the grind on");
         System.out.println("  [X] " + t.toStringMain() + "\n" + DIVIDER_LINE);
     }
 
+    /**
+     * Displays a message indicating that the given task has been marked as not done.
+     *
+     * @param t task that was unmarked
+     */
     public void showUnmark(Task t) {
         System.out.println(DIVIDER_LINE + "U lazy dog, go finish this task:");
         System.out.println("  [ ] " + t.toStringMain() + "\n" + DIVIDER_LINE);
     }
 
+    /**
+     * Shows a single task at the given index if it exists, or a message if not found.
+     *
+     * @param i     zero-based index of the task to show, or -1 if no match
+     * @param tasks list of tasks to read from
+     */
     public void showTask(int i, TaskList tasks) {
         if (i > -1){
             Task t = tasks.get(i);
@@ -116,6 +144,12 @@ public class Ui {
         }
     }
 
+    /**
+     * Shows a confirmation message after a task is deleted.
+     *
+     * @param removed the task that was removed
+     * @param size    the new total number of tasks
+     */
     public void showDelete(Task removed, int size) {
         System.out.println(DIVIDER_LINE + "Noted. I've removed this task:");
         System.out.println("  " + removed.toString());
