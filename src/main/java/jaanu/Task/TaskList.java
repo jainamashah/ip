@@ -51,6 +51,12 @@ public class TaskList {
         return tasks.get(index);
     }
 
+    /**
+     * Finds the index of the first task whose description contains the given keyword as a full word.
+     *
+     * @param keyword word to search for in task descriptions
+     * @return zero-based index of the first matching task, or -1 if none match
+     */
     public int find(String keyword) {
         String[] task_words;
         for (int i = 0; i < size(); i++){
